@@ -274,7 +274,7 @@ export class FileAnalysis extends Component {
                                     <center>
                                         <td >
                                             <center>
-                                                {this.state.subscriptionKey ? null : <p> Please set subscription key to analyze</p>}
+                                                {this.state.subscriptionKey ? null : <p> Defina a chave de assinatura para iniciar</p>}
 
                                                 <br />
                                                 {this.state.subscriptionKey ?
