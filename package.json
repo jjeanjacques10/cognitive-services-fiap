@@ -3,22 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "bootstrap": "^3.4.1",
+    "bootstrap-theme": "^5.0.0",
+    "image-to-base64": "^2.1.1",
+    "jquery": "^3.5.1",
+    "picomatch": "^2.2.2",
+    "react": "^16.10.2",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-dom": "^16.10.2",
+    "react-images-upload": "^1.2.8",
+    "react-json-viewer": "^2.1.0",
+    "react-router-bootstrap": "^0.24.4",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^3.4.3",
+    "react-sidebar": "^3.0.2",
+    "react-switch": "^5.0.1",
+    "react-webcam": "^3.1.1",
+    "reactstrap": "^6.5.0",
+    "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "ajv": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.6.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "rimraf ./build && react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "cross-env CI=true react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
+  "author": "Jean Jacques Barros",
   "browserslist": {
     "production": [
       ">0.2%",
