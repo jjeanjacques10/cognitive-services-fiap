@@ -10,7 +10,21 @@ Projeto para a palestra de Cognitive Services FIAP.
 
 - ReactJS
 
-# Como executar o projeto
+## Configurar
+
+Substitua o subscriptionKey e o endpointRegion dentro dos arquivos:
+
+- src\components\FileAnalysis.js
+- src\components\WebCamCV.js
+
+```  
+subscriptionKey: '',
+endpointRegion: '',
+```
+
+Você pode entrar sua chave no [portal do Azure](https://portal.azure.com/) após criar um Costum Vision.
+
+## Como executar o projeto
 
 Para clonar e rodar a aplicar você precisa do [Git](https://git-scm.com), [Node.js v12.14.1][nodejs] ou uma versão mais nova instalada em seu computador. Siga os seguintes passos na linha de comando:
 
