@@ -124,12 +124,12 @@ export class FileAnalysis extends Component {
         console.log(picture);
         this.getBase64(picture[picture.length - 1], (result) => {
             image = result;
-    
+
             const imageBlob = this.makeblob(image);
             this.setState({ img: image });
             var t0 = performance.now();
             //Object Detection
-            fetch('https://' + this.state.endpointRegion + '.api.cognitive.microsoft.com/vision/v2.0/detect/', {
+            fetch('https://' + this.state.endpointRegion + '.api.cognitive.microsoft.com/vision/v2.0/analyze/?visualFeatures=Adult,Description', {
                 method: 'POST',
                 headers: {
                     'Ocp-Apim-Subscription-Key': this.state.subscriptionKey,
@@ -142,6 +142,8 @@ export class FileAnalysis extends Component {
                 .then(data => {
                     var t1 = performance.now();
                     this.setState({ objects: data.objects, fetchTime: (t1 - t0).toFixed(3) });
+                    this.setState({ adultScore: data.adult.adultScore });
+                    this.setState({ isAdultContent: data.adult.isAdultContent });
                 }).then(returnValue => this.updateCanvas());
 
 
@@ -318,7 +320,8 @@ export class FileAnalysis extends Component {
                                         </ul>
                                         </div> : null
                                     }
-
+                                    {this.state.isAdultContent !== undefined ? <div> <p> <b>É material imprório: </b>  {this.state.isAdultContent.toString()} </p><b /> </div> : null}
+                                    {this.state.adultScore ? <div> <p> <b>Score Conteúdo adulto: </b>  {this.state.adultScore}</p> </div> : null}
                                     {this.state.fetchTime ? <div> <p> <b>Latency: </b>  {this.state.fetchTime} milliseconds</p> </div> : null}
 
                                 </td>
